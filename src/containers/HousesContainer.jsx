@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import AddHouseForm from "../components/AddHouseForm.jsx";
 
 function HousesContainer() {
   const [houses, setHouses] = useState([]);
@@ -19,7 +20,11 @@ function HousesContainer() {
   return (
     <>
       <h1>Use Effect Lesson</h1>
-      {houses.length == 0 ? <h1>Loading</h1> : <h1>Hello World</h1>}
+      {houses.length == 0 ? (
+        <h1>Loading</h1>
+      ) : (
+        <AddHouseForm houses={houses} setHouses={setHouses} />
+      )}
     </>
   );
 }
