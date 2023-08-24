@@ -4,7 +4,6 @@ import AddHouseForm from "../components/AddHouseForm.jsx";
 
 const HousesContainer = () => {
   const [houses, setHouses] = useState([]);
-  const [title, setTitle] = useState("Harry Potter Houses");
 
   useEffect(() => {
     fetch("https://wizard-world-api.herokuapp.com/Houses")
@@ -24,7 +23,7 @@ const HousesContainer = () => {
         <h1>Loading</h1>
       ) : (
         <>
-          <Title title={title} />
+          <Title title="Houses" />
           <AddHouseForm houses={houses} setHouses={setHouses} />
         </>
       )}
