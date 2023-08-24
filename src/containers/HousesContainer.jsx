@@ -24,6 +24,7 @@ const HousesContainer = () => {
       ) : (
         <>
           <Title title="Houses" />
+          <HousesList houses={houses} />
           <AddHouseForm houses={houses} setHouses={setHouses} />
         </>
       )}
@@ -33,6 +34,19 @@ const HousesContainer = () => {
 
 const Title = ({ title }) => {
   return <h1>{title}</h1>;
+};
+
+const HousesList = ({ houses }) => {
+  return houses.map((house, index) => <House house={house} />);
+};
+
+const House = ({ house }) => {
+  return (
+    <>
+      <h2>{house.name}</h2>
+      <p>{house.animal}</p>
+    </>
+  );
 };
 
 export default HousesContainer;
