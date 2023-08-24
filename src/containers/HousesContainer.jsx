@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import AddHouseForm from "../components/AddHouseForm.jsx";
 
-function HousesContainer() {
+const HousesContainer = () => {
   const [houses, setHouses] = useState([]);
+  const [title, setTitle] = useState("Harry Potter Houses");
 
   useEffect(() => {
     fetch("https://wizard-world-api.herokuapp.com/Houses")
@@ -19,14 +20,20 @@ function HousesContainer() {
 
   return (
     <>
-      <h1>Use Effect Lesson</h1>
       {houses.length == 0 ? (
         <h1>Loading</h1>
       ) : (
-        <AddHouseForm houses={houses} setHouses={setHouses} />
+        <>
+          <Title title={title} />
+          <AddHouseForm houses={houses} setHouses={setHouses} />
+        </>
       )}
     </>
   );
-}
+};
+
+const Title = ({ title }) => {
+  return <h1>{title}</h1>;
+};
 
 export default HousesContainer;
