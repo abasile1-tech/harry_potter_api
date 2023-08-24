@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useEffect } from "react";
 import AddHouseForm from "../components/AddHouseForm.jsx";
@@ -37,7 +38,7 @@ const Title = ({ title }) => {
 };
 
 const HousesList = ({ houses }) => {
-  return houses.map((house, index) => <House house={house} />);
+  return houses.map((house, index) => <House key={index} house={house} />);
 };
 
 const House = ({ house }) => {

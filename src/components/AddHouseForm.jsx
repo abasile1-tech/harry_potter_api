@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 function AddHouseForm({ houses, setHouses }) {
@@ -5,9 +6,35 @@ function AddHouseForm({ houses, setHouses }) {
   const [animal, setAnimal] = useState("");
 
   return (
-    <>
-      <h1>This is the Add House Form</h1>
-    </>
+    <form action="">
+      <div>
+        <label htmlFor="">Name</label>
+        <input
+          type="text"
+          onChange={(e) => setName(e.target.value)}
+          value={name}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="">Animal</label>
+        <input
+          type="text"
+          onChange={(e) => setAnimal(e.target.value)}
+          value={animal}
+        />
+      </div>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          setHouses([...houses, { name, animal }]);
+          setName("");
+          setAnimal("");
+        }}
+      >
+        Add House
+      </button>
+    </form>
   );
 }
 
